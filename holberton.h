@@ -13,5 +13,7 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 void printchar(va_list args);
 void printstring(va_list args);
+void printporc(va_list args);
+void printint(va_list args);
 
 #endif 
