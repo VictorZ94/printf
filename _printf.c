@@ -10,6 +10,9 @@ int _printf(const char *format, ...)
 	print form[] = {
 		{'c', printchar},
 		{'s', printstring},
+		{'%', printchar},
+		{'i', printint},
+		{'d', printint},
 		{'\0', '\0'}
 	};
 	
@@ -21,16 +24,20 @@ int _printf(const char *format, ...)
 		j = 0;
 		while (form[j].c != '\0' && format[i] == '%')
 		{
-			if (format[i + 1] == form[j].c)
+			if (format[i + 1] == form[j].c )
 			{
 				form[j].f(args);
-				i =+ 2;
+				i += 2; 
 			}
+			/*else if (format[i + 1] == '%')
+			{
+				i += 1;
+			}*/
 			j++;
 		}
 		_putchar(format[i]);
 	i++;
 	}
 	va_end(args);
-	return (0);
+	return (i);
 }
