@@ -6,7 +6,7 @@
  * _printf - write characters standard output and classified by formatt
  * @format: are all different formats type.
  *
- * Return: lenght all format printed.
+ * Return: lenght all format printed - print formatted.
  */
 int _printf(const char *format, ...)
 {
