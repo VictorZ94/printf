@@ -2,6 +2,12 @@
 #include "holberton.h"
 #include <stdio.h>
 
+/**
+ * _printf - write characters standard output and classified by formatt
+ * @format: are all different formats type.
+ *
+ * Return: lenght all format printed.
+ */
 int _printf(const char *format, ...)
 {
 	va_list args;

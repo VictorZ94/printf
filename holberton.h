@@ -5,15 +5,15 @@
 
 typedef struct print
 {
-	char c;
-	void (*f)(va_list);
+	char *c;
+	int (*f)(va_list);
 }print;
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-void printchar(va_list args);
-void printstring(va_list args);
-void printporc(va_list args);
-void printint(va_list args);
+int printchar(va_list args);
+int printstring(va_list args);
+int printporcent(va_list args);
+int printint(va_list args);
 
 #endif 
