@@ -32,3 +32,4 @@ int printporcent(va_list args)
 	_putchar('%');
 	return(-1);
 }
+
