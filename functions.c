@@ -2,56 +2,34 @@
 #include "holberton.h"
 #include <stdlib.h>
 
-void printchar(va_list args)
+int printchar(va_list args)
 {
 	char c;
 	c = va_arg(args, int);
-_putchar(c);
+	_putchar(c);
+	return(-1);
 }
 
-void printstring(va_list args)
+int printstring(va_list args)
 {
 	char *s;
+	int i;
 	s = va_arg(args, char *);
-	while (*s != '\0')
+	if (s == NULL)
+		return (-1);
+	i = 0;
+	while (s[i] != '\0')
 	{
-		_putchar(*s);
-		s++;
+		_putchar(s[i]);
+		i++;
 	}
+	return(i - 2);
 }
 
-void printint(va_list args)
+int printporcent(va_list args)
 {
-	char lastDigit;
-	int reversed;
-	int n;
-
-	n = va_arg(args, int);
-
-	if (n < 0)
-	{
-	_putchar('-');
-	lastDigit = ('0' - (n % 10));
-	n /= -10;
-	}
-	else
-	{
-	lastDigit = ((n % 10) + '0');
-	n /= 10;
-	}
-
-	reversed = 0;
-	while (n > 0)
-	{
-	reversed = reversed * 10 + (n % 10);
-	n /= 10;
-	}
-
-	while (reversed > 0)
-	{
-	char c = ((reversed % 10) + '0');
-	_putchar(c);
-	reversed /= 10;
-	}
-	_putchar(lastDigit);
+	(void)args;
+	_putchar('%');
+	return(-1);
 }
+
