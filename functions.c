@@ -52,3 +52,46 @@ int printporcent(va_list args)
 	_putchar('%');
 	return (-1);
 }
+
+/**
+ * printint - function to print an integer data types
+ * @args: - argument variadic function
+ *
+ * Return: -1
+ */
+int printint(va_list args)
+{
+	char lastDigit;
+	int reversed;
+	int n, contador;
+
+	n = va_arg(args, int);
+	if (n < 0)
+	{
+	_putchar('-');
+	lastDigit = ('0' - (n % 10));
+	n /= -10;
+	}
+	else
+	{
+	lastDigit = ((n % 10) + '0');
+	n /= 10;
+	}
+	reversed = 0;
+	while (n > 0)
+	{
+	reversed = reversed * 10 + (n % 10);
+	n /= 10;
+	}
+	contador = 0;
+	while (reversed > 0)
+	{
+	char c = ((reversed % 10) + '0');
+
+	_putchar(c);
+	reversed /= 10;
+	contador++;
+	}
+	_putchar(lastDigit);
+	return (contador);
+}
