@@ -1,12 +1,10 @@
 #include <stdarg.h>
 #include "holberton.h"
 #include <stdio.h>
-
 /**
- * _printf - write characters standard output and classified by formatt
- * @format: are all different formats type.
- *
- * Return: lenght all format printed - print formatted.
+ * _printf - our printf function
+ * @format: list of types of arguments passed to the function
+ * Return: number of characters printed
  */
 int _printf(const char *format, ...)
 {
@@ -15,9 +13,11 @@ int _printf(const char *format, ...)
 	int j;
 	int count = 0;
 	print form[] = {
-		{"%", printporcent},
 		{"c", printchar},
 		{"s", printstring},
+		{"%", printporcent},
+		{"i", printint},
+		{"d", printint},
 		{NULL, NULL}
 	};
 
@@ -31,6 +31,7 @@ int _printf(const char *format, ...)
 	i = 0;
 	while (format[i] != '\0')
 	{
+
 		j = 0;
 		while (form[j].c != '\0' && format[i] == '%')
 		{
