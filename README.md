@@ -1,22 +1,22 @@
 # 0x11. C - printf
 
 
-##_printf()
+## _printf()
 
-####Prototype: int _printf(const char *format, ...);
+#### Prototype: int _printf(const char *format, ...);
 
-####_printf.c 
-prints out a formatted string to standard output, replicating the C standar library 
+#### _printf.c 
+Prints out a formatted string to standard output, replicating the C standar library 
 printf() function for characters, string and integers.
 
 ###Formats used
-                    
-%Character  | Output
-------------| -------------
-     c      | Prints a single character
-     s      | Prints a string of characters
-		 d      | Prints a signed decimal integer
-		 i      | Prints a signed decimal integer
+
+|  %Character |  Output |
+| ------------ | ------------ |
+|   c |  Prints a single character |
+|  s  | Prints a string of characters  |
+|  d  | Prints a signed decimal integer  |
+|   i   |Prints a signed decimal integer   |
 
 
 ## Description 🚀
@@ -61,7 +61,7 @@ The expected output:
 
 ```
 
-## Autores ✒️
+## Authors ✒️
 
 * **Victor Zuluaga** - *Holberton School Student* - [VictorZ94](https://github.com/VictorZ94)
 * **Valentina Gómez** - *Holberton School Student* - [Valentinaga1](https://github.com/Valentinaga1)
