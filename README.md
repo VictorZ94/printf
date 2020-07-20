@@ -9,7 +9,7 @@
 Prints out a formatted string to standard output, replicating the C standar library 
 printf() function for characters, string and integers.
 
-###Formats used
+### Formats used
 
 |  %Character |  Output |
 | ------------ | ------------ |
@@ -57,8 +57,6 @@ The expected output:
 	String:[I am a string !]
 	Percent:[%]
 	Length:[39, 39]
-
-
 ```
 
 ## Authors ✒️
@@ -74,14 +72,14 @@ Writes a character to stdout.
 - #### functions.c 
 file with all the functions to print a string, a character, an integer.
 
-- ####holberton.h 
+- #### holberton.h 
 header file containing the prototypes of each function and defines a struct.
 
 - #### man_3_printf 
 man page containing details about the usage of _printf function.
 
-- ####tests/main.c 
+- #### tests/main.c 
 contains main to test the files
 
-####End
+#### End
 ---
