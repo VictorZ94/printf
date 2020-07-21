@@ -1,23 +1,22 @@
 #include <stdarg.h>
 #include "holberton.h"
 #include <stdio.h>
+
 /**
- * _printf - our printf function
- * @format: list of types of arguments passed to the function
- * Return: number of characters printed
+ * _printf - write characters standard output and classified by formatt
+ * @format: are all different formats type.
+ *
+ * Return: lenght all format printed - print formatted.
  */
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0;
-	int j;
-	int count = 0;
+	int i = 0, j, count = 0;
 	print form[] = {
+		{" %", printspace},
 		{"c", printchar},
-		{"s", printstring},
 		{"%", printporcent},
-		{"i", printint},
-		{"d", printint},
+		{"s", printstring},
 		{NULL, NULL}
 	};
 
@@ -31,19 +30,37 @@ int _printf(const char *format, ...)
 	i = 0;
 	while (format[i] != '\0')
 	{
-
-		j = 0;
-		while (form[j].c != '\0' && format[i] == '%')
+		if (format[i] != '%')
 		{
-			if (format[i + 1] == form[j].c[0])
-			{
-				count = form[j].f(args);
-				i += 2;
-			}
-			j++;
+			_putchar(format[i]);
+			i++;
 		}
-		_putchar(format[i]);
-		i++;
+		else
+		{
+			j = 0;
+			while (form[j].c != '\0')
+			{
+				if (format[i + 1] == form[j].c[0] && format[i + 2] == form[j].c[1])
+				{
+					count += form[j].f(args);
+					i += 3;
+					break;
+				}
+				else if (format[i + 1] == form[j].c[0])
+				{
+					count += form[j].f(args);
+					i += 2;
+					break;
+				}
+				else if (format[i + 1] != form[j].c[0] && j >= 3)
+				{
+					_putchar('%');
+					i++;
+					break;
+				}
+				j++;
+			}
+		}
 	}
 	va_end(args);
 	return (i + count);
