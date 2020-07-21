@@ -12,59 +12,42 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int i = 0, j, count = 0;
-	print form[] = {
-		{" %", printspace},
-		{"c", printchar},
-		{"%", printporcent},
-		{"s", printstring},
-		{"i", printint},
-		{"d", printint},
-		{NULL, NULL}
-	};
+	print form[] = {{" %", printspace}, {"c", printchar}, {"%", printporcent},
+		{"s", printstring}, {"i", printint}, {"d", printint}, {NULL, NULL}};
 
-	if (!format)
+	if (!format || (format[i] == '%' && !format[i + 1]))
 		return (-1);
-
-	if (format[i] == '%' && !format[i + 1])
-		return (-1);
-
 	va_start(args, format);
 	i = 0;
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
 		{
-			_putchar(format[i]);
-			i++;
-		}
-		else
+			_putchar(format[i++]);
+		} else
 		{
 			j = 0;
 			while (form[j].c != '\0')
 			{
-				if (format[i + 1] == form[j].c[0] && format[i + 2] == form[j].c[1] 
+				if (format[i + 1] == form[j].c[0] && format[i + 2] == form[j].c[1]
 					&& format[i + 2] != '\0')
 				{
 					count += form[j].f(args);
 					i += 3;
 					break;
-				}
-				else if (format[i + 1] == form[j].c[0])
+				} else if (format[i + 1] == form[j].c[0])
 				{
 					count += form[j].f(args);
 					i += 2;
 					break;
-				}
-				else if (format[i + 1] != form[j].c[0] && j >= 5)
+				} else if (format[i + 1] != form[j].c[0] && j >= 5)
 				{
 					_putchar('%');
 					i++;
 					break;
-				}
-				j++;
+				} j++;
 			}
 		}
-	}
-	va_end(args);
+	} va_end(args);
 	return (i + count);
 }
