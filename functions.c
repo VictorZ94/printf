@@ -28,11 +28,12 @@ int printstring(va_list args)
 	char *s;
 	int i;
 	char *null = "(null)";
+
 	s = va_arg(args, char *);
 	if (s == NULL)
 	{
 		i = 0;
-		while(null[i] != '\0')
+		while (null[i] != '\0')
 		{
 			_putchar(null[i]);
 			i++;
@@ -68,4 +69,39 @@ int printspace(va_list args)
 	(void)args;
 	_putchar('%');
 	return (-2);
+}
+
+int printint(va_list args)
+{
+	char lastDigit;
+	int reversed;
+	int n, contador;
+	n = va_arg(args, int);
+	if (n < 0)
+	{
+	_putchar('-');
+	lastDigit = ('0' - (n % 10));
+	n /= -10;
+	}
+	else
+	{
+	lastDigit = ((n % 10) + '0');
+	n /= 10;
+	}
+	reversed = 0;
+	while (n > 0)
+	{
+	reversed = reversed * 10 + (n % 10);
+	n /= 10;
+	}
+	contador = 0;
+	while (reversed > 0)
+	{
+	char c = ((reversed % 10) + '0');
+	_putchar(c);
+	reversed /= 10;
+	contador++;
+	}
+	_putchar(lastDigit);
+	return(contador);
 }
