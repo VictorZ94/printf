@@ -103,5 +103,5 @@ int printint(va_list args)
 	contador++;
 	}
 	_putchar(lastDigit);
-	return(contador);
+	return(contador - 1);
 }
