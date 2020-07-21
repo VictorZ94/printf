@@ -42,7 +42,8 @@ int _printf(const char *format, ...)
 			j = 0;
 			while (form[j].c != '\0')
 			{
-				if (format[i + 1] == form[j].c[0] && format[i + 2] == form[j].c[1])
+				if (format[i + 1] == form[j].c[0] && format[i + 2] == form[j].c[1] 
+					&& format[i + 2] != '\0')
 				{
 					count += form[j].f(args);
 					i += 3;
