@@ -74,7 +74,7 @@ int printrot13(va_list args)
 	return (count);
 }
 /**
- * printrevString- reverses a string(different to print)
+ * printrevString- reverses a string
  * @args: argument variadic function
  *
  * Return: amount n prints
