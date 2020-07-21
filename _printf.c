@@ -13,7 +13,8 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0, j, count = 0;
 	print form[] = {{" %", printspace}, {"c", printchar}, {"%", printporcent},
-		{"s", printstring}, {"i", printint}, {"d", printint}, {NULL, NULL}};
+		{"s", printstring}, {"i", printint}, {"d", printint}, {"b", printbinary},
+		{"R", printrot13}, {"r", printrevString}, {NULL, NULL}};
 
 	if (!format || (format[i] == '%' && !format[i + 1]))
 		return (-1);
@@ -22,9 +23,8 @@ int _printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
-		{
 			_putchar(format[i++]);
-		} else
+		else
 		{
 			j = 0;
 			while (form[j].c != '\0')
@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 					count += form[j].f(args);
 					i += 2;
 					break;
-				} else if (format[i + 1] != form[j].c[0] && j >= 5)
+				} else if (format[i + 1] != form[j].c[0] && j >= 8)
 				{
 					_putchar('%');
 					i++;

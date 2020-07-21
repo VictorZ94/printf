@@ -19,5 +19,8 @@ int printstring(va_list args);
 int printporcent(va_list args);
 int printint(va_list args);
 int printspace(va_list args);
+int printbinary(va_list args);
+int printrot13(va_list args);
+int printrevString(va_list args);
 
 #endif
