@@ -64,6 +64,12 @@ int printporcent(va_list args)
 	return (-1);
 }
 
+/**
+ * printspace - function to print percentage symbol data types
+ * @args: - argument variadic function
+ *
+ * Return: character prints
+ */
 int printspace(va_list args)
 {
 	(void)args;
@@ -71,17 +77,25 @@ int printspace(va_list args)
 	return (-2);
 }
 
+/**
+ * printint - function to print Integers
+ * @args: - argument variadic function
+ *
+ * Return: amount number prints
+ */
 int printint(va_list args)
 {
-	char lastDigit;
+	char lastDigit, c;
 	int reversed;
-	int n, contador;
+	int n, contador = 0;
+
 	n = va_arg(args, int);
 	if (n < 0)
 	{
 	_putchar('-');
 	lastDigit = ('0' - (n % 10));
 	n /= -10;
+	contador++;
 	}
 	else
 	{
@@ -94,14 +108,13 @@ int printint(va_list args)
 	reversed = reversed * 10 + (n % 10);
 	n /= 10;
 	}
-	contador = 0;
 	while (reversed > 0)
 	{
-	char c = ((reversed % 10) + '0');
+	c = ((reversed % 10) + '0');
 	_putchar(c);
 	reversed /= 10;
 	contador++;
 	}
 	_putchar(lastDigit);
-	return(contador - 1);
+	return (contador - 1);
 }
