@@ -27,15 +27,25 @@ int printstring(va_list args)
 {
 	char *s;
 	int i;
-
+	char *null = "(null)";
 	s = va_arg(args, char *);
 	if (s == NULL)
-		return (-1);
-	i = 0;
-	while (s[i] != '\0')
 	{
-		_putchar(s[i]);
-		i++;
+		i = 0;
+		while(null[i] != '\0')
+		{
+			_putchar(null[i]);
+			i++;
+		}
+	}
+	else
+	{
+		i = 0;
+		while (s[i] != '\0')
+		{
+			_putchar(s[i]);
+			i++;
+		}
 	}
 	return (i - 2);
 }
@@ -53,45 +63,9 @@ int printporcent(va_list args)
 	return (-1);
 }
 
-/**
- * printint - function to print an integer data types
- * @args: - argument variadic function
- *
- * Return: -1
- */
-int printint(va_list args)
+int printspace(va_list args)
 {
-	char lastDigit;
-	int reversed;
-	int n, contador;
-
-	n = va_arg(args, int);
-	if (n < 0)
-	{
-	_putchar('-');
-	lastDigit = ('0' - (n % 10));
-	n /= -10;
-	}
-	else
-	{
-	lastDigit = ((n % 10) + '0');
-	n /= 10;
-	}
-	reversed = 0;
-	while (n > 0)
-	{
-	reversed = reversed * 10 + (n % 10);
-	n /= 10;
-	}
-	contador = 0;
-	while (reversed > 0)
-	{
-	char c = ((reversed % 10) + '0');
-
-	_putchar(c);
-	reversed /= 10;
-	contador++;
-	}
-	_putchar(lastDigit);
-	return (contador);
+	(void)args;
+	_putchar('%');
+	return (-2);
 }
