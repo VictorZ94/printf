@@ -17,6 +17,8 @@ int _printf(const char *format, ...)
 		{"c", printchar},
 		{"%", printporcent},
 		{"s", printstring},
+		{"i", printint},
+		{"d", printint},
 		{NULL, NULL}
 	};
 
@@ -52,7 +54,7 @@ int _printf(const char *format, ...)
 					i += 2;
 					break;
 				}
-				else if (format[i + 1] != form[j].c[0] && j >= 3)
+				else if (format[i + 1] != form[j].c[0] && j >= 5)
 				{
 					_putchar('%');
 					i++;
