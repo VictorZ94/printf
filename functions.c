@@ -85,36 +85,36 @@ int printspace(va_list args)
  */
 int printint(va_list args)
 {
-	char lastDigit, c;
-	int reversed;
-	int n, contador = 0;
+	int aux, size = 1, a, b, count = 1;
+	int n = va_arg(args, int);
 
-	n = va_arg(args, int);
-	if (n < 0)
+	b = n % 10;
+	n = n / 10;
+	aux = n;
+	if (b < 0)
 	{
-	_putchar('-');
-	lastDigit = ('0' - (n % 10));
-	n /= -10;
-	contador++;
+		b = -1 * b;
+		aux = -1 * aux;
+		n = -1 * n;
+		_putchar('-');
+		count++;
 	}
-	else
+	if (aux > 0)
 	{
-	lastDigit = ((n % 10) + '0');
-	n /= 10;
+		while (aux / 10 != 0)
+		{
+			aux = aux / 10;
+			size = size * 10;
+		}
+		while (size > 0)
+		{
+			a = n / size;
+			_putchar('0' + a);
+			n = n - a * size;
+			size = size / 10;
+			count++;
+		}
 	}
-	reversed = 0;
-	while (n > 0)
-	{
-	reversed = reversed * 10 + (n % 10);
-	n /= 10;
-	}
-	while (reversed > 0)
-	{
-	c = ((reversed % 10) + '0');
-	_putchar(c);
-	reversed /= 10;
-	contador++;
-	}
-	_putchar(lastDigit);
-	return (contador - 1);
+	_putchar('0' + b);
+	return (count);
 }
