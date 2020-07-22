@@ -90,31 +90,39 @@ int printint(va_list args)
 	int n, contador = 0;
 
 	n = va_arg(args, int);
-	if (n < 0)
-	{
-	_putchar('-');
-	lastDigit = ('0' - (n % 10));
-	n /= -10;
-	contador++;
+	if (n)
+	{	
+		if (n < 0)
+		{
+		_putchar('-');
+		lastDigit = ('0' - (n % 10));
+		n /= -10;
+		contador++;
+		}
+		else
+		{
+		lastDigit = ((n % 10) + '0');
+		n /= 10;
+		}
+		reversed = 0;
+		while (n > 0)
+		{
+		reversed = reversed * 10 + (n % 10);
+		n /= 10;
+		}
+		while (reversed > 0)
+		{
+		c = ((reversed % 10) + '0');
+		_putchar(c);
+		reversed /= 10;
+		contador++;
+		}
+		_putchar(lastDigit);
 	}
 	else
 	{
-	lastDigit = ((n % 10) + '0');
-	n /= 10;
+		_putchar('0');
+		return (1);
 	}
-	reversed = 0;
-	while (n > 0)
-	{
-	reversed = reversed * 10 + (n % 10);
-	n /= 10;
-	}
-	while (reversed > 0)
-	{
-	c = ((reversed % 10) + '0');
-	_putchar(c);
-	reversed /= 10;
-	contador++;
-	}
-	_putchar(lastDigit);
 	return (contador - 1);
 }
