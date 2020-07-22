@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * _printf - write characters standard output and classified by formatt
+ * _printf - write characters standard output and classified by format.
  * @format: are all different formats type.
  *
  * Return: lenght all format printed - print formatted.
