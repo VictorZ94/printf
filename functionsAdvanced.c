@@ -38,7 +38,7 @@ int printbinary(va_list args)
 			count++;
 		}
 	}
-	return (count);
+	return (count - 2);
 }
 /**
  * printrot13 - prints the rot13'ed string
@@ -51,27 +51,43 @@ int printrot13(va_list args)
 	int i;
 	int count = 0;
 	char *s = va_arg(args, char *);
+	char *nul = "(null)";
 
-	i = 0;
-	while (s[i] != 0)
+	if (s == NULL)
 	{
-		while ((s[i] >= 'A' && s[i] < 'N') || (s[i] >= 'a' && s[i] < 'n'))
+		while (*nul)
+		{	_putchar(*nul);
+			count++;
+			nul++;
+		}
+	}
+	else
+	{
+		i = 0;
+		while (s[i] != 0)
 		{
-			s[i] += 13;
-			_putchar(s[i]);
+						count++;
+			while ((s[i] >= 'A' && s[i] < 'N') || (s[i] >= 'a' && s[i] < 'n'))
+			{
+				s[i] += 13;
+				_putchar(s[i]);
+				i++;
+			}
+			if ((s[i] >= 'N' && s[i] <= 'Z') || (s[i] >= 'n' && s[i] <= 'z'))
+			{
+				s[i] -= 13;		
+				_putchar(s[i]);
+											count++;
+			}
+				_putchar(s[i]);
+
+				
 			i++;
-			count++;
 		}
-		if ((s[i] >= 'N' && s[i] <= 'Z') || (s[i] >= 'n' && s[i] <= 'z'))
-		{
-			s[i] -= 13;
-			count++;
-		}
-			_putchar(s[i]);
-		i++;
 	}
 	_putchar(s[i]);
-	return (count);
+		
+	return (count - 2);
 }
 /**
  * printrevString- reverses a string
@@ -96,5 +112,5 @@ int printrevString(va_list args)
 		i--;
 		count++;
 	}
-	return (count);
+	return (count - 1);
 }
