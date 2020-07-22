@@ -54,7 +54,6 @@ int printrot13(va_list args)
 	int i, j, count = 0;
 
 	s = va_arg(args, char *);
-
 	i = 0;
 	while (s[i])
 	{
@@ -75,6 +74,7 @@ int printrot13(va_list args)
 	}
 	return (count - 1);
 }
+
 /**
  * printrevString- reverses a s
  * @args: argument variadic function
@@ -94,7 +94,7 @@ int printrevString(va_list args)
 		i++;
 	}
 	i = i - 1;
-	while (i > 0)
+	while (i >= 0)
 	{
 		_putchar(s[i]);
 			count++;
