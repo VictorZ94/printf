@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * _printf - write characters standard output and classified by formatt
+ * _printf - write characters standard output and classified by format.
  * @format: are all different formats type.
  *
  * Return: lenght all format printed - print formatted.
@@ -14,9 +14,8 @@ int _printf(const char *format, ...)
 	int i = 0, j, count = 0;
 	print form[] = {{" %", printspace}, {"c", printchar}, {"%", printporcent},
 		{"s", printstring}, {"i", printint}, {"d", printint}, {"b", printbinary},
-		{"R", printrot13}, {"r", printrevString},  {"u", printuint}, {"X", printhexaMAY},
-		{"o", printoctal}, {"x", printhexaMIN}, {NULL, NULL}};
-
+		{"R", printrot13}, {"r", printrevString},  {"u", printuint},
+		{"X", printhexaMAY}, {"o", printoctal}, {"x", printhexaMIN}, {NULL, NULL}};
 	if (!format || (format[i] == '%' && !format[i + 1]))
 		return (-1);
 	va_start(args, format);
