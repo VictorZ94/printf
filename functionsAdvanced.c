@@ -94,11 +94,11 @@ int printrevString(va_list args)
 		i++;
 	}
 	i = i - 1;
-	while (i >= 0)
+	while (i > 0)
 	{
 		_putchar(s[i]);
 			count++;
 		i--;
 	}
-	return (count - 1);
+	return (count);
 }
