@@ -44,28 +44,37 @@ int printuint(va_list args)
  */
 int printhexaMAY(va_list args)
 {
-	unsigned int n, i, temp;
+	unsigned int n, i = 0, temp;
 	int j;
 	char hexa[1000];
 
 	n = va_arg(args, int);
-	i = 0;
-	temp = 0;
-	while (n != 0)
+	if (n == 0)
 	{
-		temp = n % 16;
-		if (temp < 10)
-		{
-			hexa[i] = temp + 48;
-			i++;
-		}
-		else
-		{
-			hexa[i] = temp + 55;
-			i++;
-		}
-		n = n / 16;
+		_putchar('0');
+		i++;
 	}
+	else
+	{
+		i = 0;
+		temp = 0;
+		while (n != 0)
+		{
+			temp = n % 16;
+			if (temp < 10)
+			{
+				hexa[i] = temp + 48;
+				i++;
+			}
+			else
+			{
+				hexa[i] = temp + 55;
+				i++;
+			}
+			n = n / 16;
+		}
+	}
+	
 	for (j = (i - 1); j >= 0; j--)
 		_putchar(hexa[j]);
 
@@ -80,28 +89,37 @@ return (i - 2);
  */
 int printhexaMIN(va_list args)
 {
-	unsigned int n, i, temp;
+	unsigned int n, i = 0, temp;
 	int j;
 	char hexa[1000];
 
 	n = va_arg(args, int);
-	i = 0;
-	temp = 0;
-	while (n != 0)
+	if (n == 0)
 	{
-		temp = n % 16;
-		if (temp < 10)
-		{
-			hexa[i] = temp + 48;
-			i++;
-		}
-		else
-		{
-			hexa[i] = temp + (55 + 32);
-			i++;
-		}
-		n = n / 16;
+		_putchar('0');
+		i++;
 	}
+	else
+	{
+		i = 0;
+		temp = 0;
+		while (n != 0)
+		{
+			temp = n % 16;
+			if (temp < 10)
+			{
+				hexa[i] = temp + 48;
+				i++;
+			}
+			else
+			{
+				hexa[i] = temp + (55 + 32);
+				i++;
+			}
+			n = n / 16;
+		}
+	}
+	
 	for (j = (i - 1); j >= 0; j--)
 		_putchar(hexa[j]);
 
