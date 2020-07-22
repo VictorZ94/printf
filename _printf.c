@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 					count += form[j].f(args);
 					i += 2;
 					break;
-				} else if (format[i + 1] != form[j].c[0] && j >= 13)
+				} else if (format[i + 1] != form[j].c[0] && j >= 14)
 				{
 					_putchar('%');
 					i++;
