@@ -74,7 +74,7 @@ int printhexaMAY(va_list args)
 			n = n / 16;
 		}
 	}
-	
+
 	for (j = (i - 1); j >= 0; j--)
 		_putchar(hexa[j]);
 
@@ -119,7 +119,6 @@ int printhexaMIN(va_list args)
 			n = n / 16;
 		}
 	}
-	
 	for (j = (i - 1); j >= 0; j--)
 		_putchar(hexa[j]);
 
