@@ -116,29 +116,21 @@ return (i - 2);
  */
 int printoctal(va_list args)
 {
-	unsigned int n, rem = 0;
+	unsigned int n, i;
+	int j;
+	int octalNum[1000];
 
 	n = va_arg(args, int);
 
-	print_octal(n, rem);
-	return (0);
+	i = 0;
+	while (n != 0)
+	{
+		octalNum[i] = n % 8;
+		n = n / 8;
+		i++;
+	}
+	for (j = i - 1; j >= 0; j--)
+		_putchar(octalNum[j] + '0');
+
+return (i - 2);
 }
-
-/**
- * print_octal - function to print number without signed numbers Octal
- * @n: number to octal
- * @rem: remaider
- * Return: counter - 1
- */
-int print_octal(unsigned int n, unsigned int rem)
-{
-	if (n == 0)
-		return (0);
-
-	rem = n % 8;
-	n = n / 8;
-	print_octal(n, rem);
-	_putchar(rem + '0');
-	return (0);
-}
-
