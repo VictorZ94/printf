@@ -41,56 +41,42 @@ int printbinary(va_list args)
 	return (count - 2);
 }
 /**
- * printrot13 - prints the rot13'ed string
+ * printrot13 - prints the R'ed s
  * @args: argument variadic function
  *
  *Return: amount n prints
  */
 int printrot13(va_list args)
 {
-	int i;
-	int count = 0;
-	char *s = va_arg(args, char *);
-	char *nul = "(null)";
+	char *s;
+	char *A = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char *R = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i, j, count = 0;
 
-	if (s == NULL)
+	s = va_arg(args, char *);
+
+	i = 0;
+	while (s[i])
 	{
-		while (*nul)
-		{	_putchar(*nul);
-			count++;
-			nul++;
-		}
-	}
-	else
-	{
-		i = 0;
-		while (s[i] != 0)
+		count++;
+		j = 0;
+		while (A[j])
 		{
-						count++;
-			while ((s[i] >= 'A' && s[i] < 'N') || (s[i] >= 'a' && s[i] < 'n'))
+			if (s[i] == A[j])
 			{
-				s[i] += 13;
-				_putchar(s[i]);
-				i++;
+				_putchar(R[j]);
+				break;
 			}
-			if ((s[i] >= 'N' && s[i] <= 'Z') || (s[i] >= 'n' && s[i] <= 'z'))
-			{
-				s[i] -= 13;		
+			if (A[j + 1] == '\0')
 				_putchar(s[i]);
-											count++;
-			}
-				_putchar(s[i]);
-
-				
-			i++;
+			j++;
 		}
+		i++;
 	}
-	_putchar(s[i]);
-		
-	return (count - 2);
+	return (count - 1);
 }
 /**
- * printrevString- reverses a string
+ * printrevString- reverses a s
  * @args: argument variadic function
  *
  * Return: amount n prints
@@ -99,8 +85,10 @@ int printrevString(va_list args)
 {
 	int i = 0; /*contador cadena al derecho*/
 	int count = 0;
-	char *s = va_arg(args, char *);
+	char *s;
 
+	s = va_arg(args, char *);
+	i = 0;
 	while (s[i] != 0)
 	{
 		i++;
@@ -109,8 +97,8 @@ int printrevString(va_list args)
 	while (i >= 0)
 	{
 		_putchar(s[i]);
+			count++;
 		i--;
-		count++;
 	}
 	return (count - 1);
 }
