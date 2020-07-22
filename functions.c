@@ -116,5 +116,5 @@ int printint(va_list args)
 		}
 	}
 	_putchar('0' + b);
-	return (count);
+	return (count - 1);
 }
