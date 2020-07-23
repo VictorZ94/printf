@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * printchar - function to print char data types
+ * printchar - function to print char data types.
  * @args: - argument variadic function
  *
  * Return: -1
