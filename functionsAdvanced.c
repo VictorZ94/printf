@@ -72,7 +72,7 @@ int printrot13(va_list args)
 		}
 		i++;
 	}
-	return (count - 1);
+	return (count - 2);
 }
 
 /**
@@ -100,5 +100,5 @@ int printrevString(va_list args)
 			count++;
 		i--;
 	}
-	return (count);
+	return (count - 2);
 }
